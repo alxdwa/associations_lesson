@@ -1,17 +1,22 @@
-<form action="<%= books_path %>" method="POST">
-  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+<div class="container">
+  <h1>Add a Book</h1>
+  <div class="content">
+    <form action="<%= books_path %>" method="POST">
+      <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
 
-  <label for="author">Author</label><br>
-  <select name="author" id="author">
-    <% @author_names.each do |author| %>
-      <option value="<%= author %>"><%= author %></option>
-    <% end %>
-  </select><br>
+      <label for="author">Author</label><br>
+      <select name="author" id="author">
+        <% @author_names.each do |author| %>
+          <option value="<%= author %>"><%= author %></option>
+        <% end %>
+      </select><br>
 
-  <label for="title">Book title</label><br>
-  <input type="text" name="title" id="title"><br>
+      <label for="title">Book title</label><br>
+      <input type="text" name="title" id="title"><br>
 
-  <input type="submit" value="Add Book"><br>
+      <input type="submit" value="Add Book"><br>
 
-  <%= link_to("View Books", books_path) %>
-</form>
+      <%= link_to("View Books", books_path) %>
+    </form>
+  </div>
+</div>

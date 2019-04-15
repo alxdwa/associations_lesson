@@ -1,16 +1,19 @@
-<h1>Books</h1>
-
-<% @authors.each do |author| %>
-  <ul>
-    <li><%= author.name %></li>
-    <% @books.each do |book| %>
-      <% if book.author_id == author.id %>
-       <ul><li><%= book.title %></li></ul>
-      <% end %>
+<div class="container"> 
+  <h1>Books</h1>
+  <div class="content">
+    <% @authors.each do |author| %>
+      <ul>
+        <li><%= author.name %></li>
+        <% @books.each do |book| %>
+          <% if book.author_id == author.id %>
+          <ul><li><%= book.title %></li></ul>
+          <% end %>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<div>
-  <%= link_to("Add Book", new_book_path) %>
+    <div>
+      <%= link_to("Add Book", new_book_path) %>
+    </div>
+  </div>
 </div>
