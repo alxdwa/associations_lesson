@@ -1,9 +1,13 @@
 <h1>Books</h1>
 
-<% @books.each do |book| %>
+<% @authors.each do |author| %>
   <ul>
-   <li><%= book.title %></li>
-    <ul><li><%= Author.find(book.author_id).name %></li></ul>
+    <li><%= author.name %></li>
+    <% @books.each do |book| %>
+      <% if book.author_id == author.id %>
+       <ul><li><%= book.title %></li></ul>
+      <% end %>
+    <% end %>
   </ul>
 <% end %>
 
