@@ -1,0 +1,12 @@
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+  <ul>
+   <li><%= book.title %></li>
+    <ul><li><%= Author.find(book.author_id).name %></li></ul>
+  </ul>
+<% end %>
+
+<div>
+  <%= link_to("Add Book", new_book_path) %>
+</div>
