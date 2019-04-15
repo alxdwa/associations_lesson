@@ -1,0 +1,12 @@
+<h1>testing</h1>
+
+<% @authors.each do |author| %>
+  <ul>
+   <li><%= author.name %></li>
+   <li>DOB: <%= author.date_of_birth %></li>
+  </ul>
+<% end %>
+
+<div>
+  <%= link_to("Add Author", new_author_path) %>
+</div>

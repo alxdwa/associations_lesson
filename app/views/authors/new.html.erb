@@ -1,0 +1,13 @@
+<form action="<%= authors_path %>" method="POST">
+  <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+
+  <label for="name">Author name</label><br>
+  <input type="text" name="name" id="name"><br>
+
+  <label for="name">Author DOB</label><br>
+  <input type="date" name="date_of_birth" id="name"><br>
+
+  <input type="submit" value="Add Author"><br>
+
+  <%= link_to("View Authors", authors_path) %>
+</form>
