@@ -26,4 +26,13 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @author = @book.author.name
   end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
 end

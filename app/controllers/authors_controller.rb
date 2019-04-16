@@ -11,11 +11,19 @@ class AuthorsController < ApplicationController
   end
 
   def new
-
   end
 
   def show
     @author = Author.find(params[:id])
     @books = @author.books
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 end

@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Edit Book</h1>
+  <nav>
+    <%= link_to("View Books", books_path) %> | <%= link_to("Add Book", new_book_path) %> | <%= link_to("View Authors", authors_path) %> | <%= link_to("Add Author", new_author_path) %>
+  </nav>
+  <div class="content">
+    <form action="<%= books_path %>" method="POST">
+      <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token" />
+        <div class="form-flex">
+          <div class="label">
+            <label for="author">Author</label>
+          </div>
+          <div class="input">
+            <select name="author" id="author">
+              <% @author_names.each do |author| %>
+                <option value="<%= author %>"><%= author %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="label"></div>
+          <div class="input">
+            Author not on the list?<br>
+            <%= link_to("Add an Author", new_author_path) %>!
+          </div>
+          <div class="label">
+            <label for="title">Book title</label>
+          </div>
+          <div class="input">
+            <input type="text" name="title" id="title">
+          </div>
+          <div class="label">
+            <label for="genre">Genre</label>
+          </div>
+          <div class="input">
+              <% @genres.each do |genre| %>
+                <ul>
+                  <li><input class="checkbox" type="checkbox" name="genres[]" id="<%= genre.id %>" value="<%= genre.id %>"> <label for="<%= genre.id %>"><%= genre.name %></label></li>
+                </ul>
+              <% end %>
+          </div>
+          <div class="label">
+            <label for="description">Description</label>
+          </div>
+          <div class="input">
+            <textarea name="description" id="description"></textarea>
+          </div>
+          <div class="label"></div>
+          <div class="input">
+            <input type="submit" value="Add Book">
+          </div>
+        </div>
+    </form>
+  </div>
+</div>
