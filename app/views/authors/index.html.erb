@@ -1,14 +1,11 @@
 <div class="container">
   <h1>Authors</h1>
-
-  <% @authors.each do |author| %>
-    <ul>
-    <li><%= author.name %></li>
-    <li>DOB: <%= author.date_of_birth %></li>
-    </ul>
-  <% end %>
-
-  <div>
-    <%= link_to("Add Author", new_author_path) %>
+  <nav>
+    <%= link_to("View Books", books_path) %> | <%= link_to("Add Book", new_book_path) %> | <%= link_to("View Authors", authors_path) %> | <%= link_to("Add Author", new_author_path) %>
+  </nav>
+  <div class="flex-table">
+    <% @authors.each do |author| %>
+    <%= author.name %> <%= author.date_of_birth ? "(b. " + author.date_of_birth.to_s + ")" : "" %><br>
+    <% end %>
   </div>
 </div>

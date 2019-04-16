@@ -1,19 +1,23 @@
 <div class="container"> 
   <h1>Books</h1>
+  <nav>
+    <%= link_to("View Books", books_path) %> | <%= link_to("Add Book", new_book_path) %> | <%= link_to("View Authors", authors_path) %> | <%= link_to("Add Author", new_author_path) %>
+  </nav>
   <div class="content">
-    <% @authors.each do |author| %>
-      <ul>
-        <li><%= author.name %></li>
-        <% @books.each do |book| %>
-          <% if book.author_id == author.id %>
-          <ul><li><%= book.title %></li></ul>
-          <% end %>
+    <div class="flex-table">
+      
+        <% @authors.each do |author| %>
+         <div class="box">
+            <h3><%= author.name %></h3>
+            <% @books.each do |book| %>
+              <% if book.author_id == author.id %>
+                <ul>
+                  <li><%= book.title %></li>
+                </ul>
+              <% end %>
+            <% end %>
+          </div>
         <% end %>
-      </ul>
-    <% end %>
-
-    <div>
-      <%= link_to("Add Book", new_book_path) %>
     </div>
   </div>
 </div>
