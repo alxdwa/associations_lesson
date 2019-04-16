@@ -15,6 +15,6 @@ class AuthorsController < ApplicationController
   end
 
   def show
-
+    
   end
 end

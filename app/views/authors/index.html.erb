@@ -3,7 +3,7 @@
   <nav>
     <%= link_to("View Books", books_path) %> | <%= link_to("Add Book", new_book_path) %> | <%= link_to("View Authors", authors_path) %> | <%= link_to("Add Author", new_author_path) %>
   </nav>
-  <div class="flex-table">
+  <div class="content">
     <% @authors.each do |author| %>
     <%= author.name %> <%= author.date_of_birth ? "(b. " + author.date_of_birth.to_s + ")" : "" %><br>
     <% end %>
