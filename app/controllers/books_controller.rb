@@ -6,10 +6,9 @@ class BooksController < ApplicationController
 
   def create
     @author = params[:author]
-    @author_name = params[:name]
     @title = params[:title]
-    Author.find_by(name: @author).books.create(title: @title)
-    Author.create(name: @author_name)
+    @description = params[:description]
+    Author.find_by(name: @author).books.create(title: @title, description: @description)
     redirect_to books_path
   end
 

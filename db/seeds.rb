@@ -16,6 +16,25 @@ for i in 1..30
   puts "Created #{i} authors"
 end
 
+genres = [
+  "Fantasy",
+  "Science Fiction",
+  "Romance",
+  "Western",
+  "Classic",
+  "Thriller",
+  "Horror",
+  "Dystopia",
+  "Non-Fiction",
+  "Crime",
+  "Anime"
+]
+
+genres.each do |genre|
+  Genre.create(name: genre)
+  puts "Created the genre: #{genre}"
+end
+
 for i in 1..200
   Book.create(
     title: Faker::Book.title,
@@ -23,4 +42,12 @@ for i in 1..200
     description: Faker::Hipster.paragraph(2, false, 4)
     )
   puts "Created #{i} books"
+end
+
+books = Book.all
+books.each do |book|
+  rand(1..3).times do
+    idx = rand(0..(Genre.all.length - 1))
+    book.genres << Genre.all[idx] unless book.genres.include?(Genre.all[idx])
+  end
 end

@@ -92,3 +92,15 @@ input {
   font-size: 1em;
   font-family: inherit;
 }
+
+textarea {
+  width: 100%;
+  height: 60px;
+  resize: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input, textarea {
+  border: 1px solid #555555;
+}

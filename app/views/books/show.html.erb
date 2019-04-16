@@ -6,6 +6,14 @@
       <div class="input"><%= @book.title %></div>
       <div class="label">Author</div>
       <div class="input"><%= @author %></div>
+      <div class="label">Genre</div>
+      <div class="input">
+        <% @book.genres.each do |genre| %>
+          <ul>
+            <li><%= genre.name %></li>
+          </ul>
+        <% end %>
+      </div>
       <div class="label">Description</div>
       <div class="input"><%= @book.description %></div>
       <div class="label"></div>
