@@ -29,6 +29,16 @@
             <input type="text" name="title" id="title">
           </div>
           <div class="label">
+            <label for="genre">Genre</label>
+          </div>
+          <div class="input">
+              <% @genres.each do |genre| %>
+                <ul>
+                  <li><input class="checkbox" type="checkbox" name="genres[]" id="<%= genre.id %>" value="<%= genre.id %>"> <label for="<%= genre.id %>"><%= genre.name %></label></li>
+                </ul>
+              <% end %>
+          </div>
+          <div class="label">
             <label for="description">Description</label>
           </div>
           <div class="input">
