@@ -9,15 +9,15 @@
         <% @authors.each do |author| %>
          <div class="box">
             <h3><%= author.name %></h3>
-            <% @books.each do |book| %>
-              <% if book.author_id == author.id %>
+            <% author.books.each do |book| %>
                 <ul>
-                  <li><%= book.title %></li>
+                  <li><%= link_to(book.title, book_path(book.id)) %></li>
                 </ul>
-              <% end %>
             <% end %>
           </div>
         <% end %>
     </div>
   </div>
 </div>
+
+

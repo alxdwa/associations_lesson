@@ -1,11 +1,15 @@
 <div class="container">
-  <h1>Book page</h1>
+  <h1><%= @book.title %></h1>
   <div class="content">
     <div class="form-flex">
       <div class="label">Title</div>
       <div class="input"><%= @book.title %></div>
       <div class="label">Author</div>
       <div class="input"><%= @author %></div>
+      <div class="label">Description</div>
+      <div class="input"><%= @book.description %></div>
+      <div class="label"></div>
+      <div class="input"><%= link_to("Back", :back) %></div>
     </div>
   </div>
 </div>

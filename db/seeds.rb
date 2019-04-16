@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 authors = []
 
-for i in 1..10
+for i in 1..30
   author = Author.create(
     name: Faker::Book.author,
     date_of_birth: Faker::Date.birthday(18, 65)
@@ -16,10 +16,11 @@ for i in 1..10
   puts "Created #{i} authors"
 end
 
-for i in 1..50
+for i in 1..200
   Book.create(
     title: Faker::Book.title,
-    author_id: authors[rand(0..(authors.length - 1))].id
+    author_id: authors[rand(0..(authors.length - 1))].id,
+    description: Faker::Hipster.paragraph(2, false, 4)
     )
   puts "Created #{i} books"
 end

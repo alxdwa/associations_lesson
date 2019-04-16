@@ -5,7 +5,9 @@
   </nav>
   <div class="content">
     <% @authors.each do |author| %>
-    <%= author.name %> <%= author.date_of_birth ? "(b. " + author.date_of_birth.to_s + ")" : "" %><br>
+      <ul>
+        <li><%= link_to(author.name, author_path(author.id)) %></li>
+      </ul>
     <% end %>
   </div>
 </div>

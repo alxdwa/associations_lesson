@@ -1,0 +1,21 @@
+<div class="container">
+  <h1><%= @author.name %></h1>
+  <div class="content">
+    <div class="form-flex">
+      <div class="label">Name</div>
+      <div class="input"><%= @author.name %></div>
+      <div class="label">Date of Birth</div>
+      <div class="input"><%= @author.date_of_birth %></div>
+      <div class="label">Books</div>
+      <div class="input">
+        <% @books.each do |book| %>
+          <ul>
+            <li><%= book.title %></li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="label"></div>
+      <div class="input"><%= link_to("Back", :back) %></div>
+    </div>
+  </div>
+</div>
