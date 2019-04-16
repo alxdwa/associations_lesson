@@ -1,6 +1,7 @@
 <div class="container">
   <h1><%= @author.name %></h1>
   <div class="content">
+  <%= link_to("Back", :back) %>
     <div class="form-flex">
       <div class="label">Name</div>
       <div class="input"><%= @author.name %></div>
@@ -15,7 +16,7 @@
         <% end %>
       </div>
       <div class="label"></div>
-      <div class="input"><%= link_to("Back", :back) %></div>
+      <div class="input">Edit / <%= link_to("Delete", author_path(params[:id]), method: :delete, data: { confirm: 'Are you sure? This will delete all associated books.' }) %></div>
     </div>
   </div>
 </div>
