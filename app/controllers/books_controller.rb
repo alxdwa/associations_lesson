@@ -28,9 +28,25 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @authors = Author.all
+    @books = Book.all
+    @book = Book.find(params[:id])
+    @author_id = Book.find(params[:id]).author_id
+    @author_name = Author.find(@author_id).name
+    @genres = Genre.all
+    @selected_genres = @book.genres.pluck(:name)
   end
 
   def update
+    @book = Book.find(params[:id])
+    @book.title = params[:title]
+    @book.description = params[:description]
+
+    @book.genres = []
+    @genre_ids = params[:genres]
+    @genre_ids.each { |genre_id| @book.genres << Genre.find(genre_id) }
+
+    redirect_to book_path
   end
 
   def destroy
