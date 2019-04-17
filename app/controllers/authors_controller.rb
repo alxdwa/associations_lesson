@@ -19,9 +19,15 @@ class AuthorsController < ApplicationController
   end
 
   def edit
+    @author = Author.find(params[:id])
   end
 
   def update
+    @author = Author.find(params[:id])
+    @author.name = params[:name]
+    @author.date_of_birth = params[:date_of_birth]
+    @author.save
+    redirect_to author_path
   end
 
   def destroy

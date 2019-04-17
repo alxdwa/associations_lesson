@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
   def index
     @books = Book.all
     @authors = Author.all
@@ -41,11 +42,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.title = params[:title]
     @book.description = params[:description]
-
     @book.genres = []
     @genre_ids = params[:genres]
     @genre_ids.each { |genre_id| @book.genres << Genre.find(genre_id) }
-
+    @book.save
     redirect_to book_path
   end
 
