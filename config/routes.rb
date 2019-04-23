@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/authors", to: "authors#index", as: "authors"
   post "/authors", to: "authors#create"
@@ -10,8 +11,7 @@ Rails.application.routes.draw do
   delete "/authors/:id", to: "authors#destroy"
   get "/authors/:id/edit", to: "authors#edit", as: "edit_author"
 
-
-  get "/books", to: "books#index", as: "books"
+  get "/", to: "books#index", as: "books"
   post "/books", to: "books#create"
   get "/books/new", to: "books#new", as: "new_book"
   get "/books/:id", to: "books#show", as: "book"
