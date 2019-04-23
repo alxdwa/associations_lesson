@@ -10,8 +10,9 @@ class BooksController < ApplicationController
     @author = params[:author]
     @title = params[:title]
     @description = params[:description]
+    @current_user = current_user.id
 
-    @new_book = Author.find_by(name: @author).books.create(title: @title, description: @description)
+    @new_book = Author.find_by(name: @author).books.create(title: @title, description: @description, user_id: @current_user)
     @genre_ids = params[:genres]
     @genre_ids.each { |genre_id| @new_book.genres << Genre.find(genre_id) }
 

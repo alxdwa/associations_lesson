@@ -35,11 +35,20 @@ genres.each do |genre|
   puts "Created the genre: #{genre}"
 end
 
+for i in 1..5
+  User.create(
+    email: "alex+#{i}@test.com",
+    password: "testpass"
+  )
+  puts "Created #{i} users"
+end
+
 for i in 1..200
   Book.create(
     title: Faker::Book.title,
     author_id: authors[rand(0..(authors.length - 1))].id,
-    description: Faker::Hipster.paragraph(2, false, 4)
+    description: Faker::Hipster.paragraph(2, false, 4),
+    user_id: rand(1..5)
     )
   puts "Created #{i} books"
 end
